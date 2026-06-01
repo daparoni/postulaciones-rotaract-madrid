@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Postúlate — Cargos del Club Rotaract</title>
+<meta name="description" content="Conoce los cargos disponibles del club Rotaract para el nuevo mandato y postúlate." />
+<style>
+  :root{
+    --azul:#17458f;       /* Rotary Royal Azure */
+    --azul-osc:#0c3c7c;
+    --oro:#f7a81b;        /* Rotary Gold */
+    --cranberry:#d41367;  /* Rotaract */
+    --tinta:#1a1a2e;
+    --gris:#5b6472;
+    --linea:#e7eaf0;
+    --fondo:#f4f6fb;
+    --blanco:#ffffff;
+    --sombra:0 4px 20px rgba(12,60,124,.08);
+    --sombra-h:0 12px 30px rgba(12,60,124,.16);
+    --radio:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--tinta);background:var(--fondo);line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ===== HERO ===== */
+  header.hero{
+    background:linear-gradient(135deg,var(--azul-osc),var(--azul));
+    color:#fff;padding:64px 20px 90px;text-align:center;position:relative;overflow:hidden;
+  }
+  header.hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+    background:linear-gradient(90deg,var(--oro),var(--cranberry));
+  }
+  .hero .badge{
+    display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    padding:6px 16px;border-radius:999px;font-size:.82rem;letter-spacing:.5px;margin-bottom:18px;
+  }
+  .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;max-width:760px;margin:0 auto 14px}
+  .hero p{font-size:1.1rem;opacity:.92;max-width:620px;margin:0 auto 28px}
+  .hero .cta{
+    display:inline-block;background:var(--oro);color:var(--azul-osc);font-weight:700;
+    padding:14px 30px;border-radius:999px;font-size:1.02rem;transition:.2s;box-shadow:var(--sombra);
+  }
+  .hero .cta:hover{transform:translateY(-2px);box-shadow:var(--sombra-h)}
+
+  /* ===== CONTENEDOR ===== */
+  main{max-width:1080px;margin:-50px auto 0;padding:0 20px 80px;position:relative;z-index:2}
+
+  /* ===== PASOS ===== */
+  .pasos{
+    background:var(--blanco);border-radius:var(--radio);box-shadow:var(--sombra);
+    padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:54px;
+  }
+  .paso{display:flex;gap:14px;align-items:flex-start}
+  .paso .n{
+    flex:0 0 38px;height:38px;border-radius:50%;background:var(--azul);color:#fff;
+    display:grid;place-items:center;font-weight:700;
+  }
+  .paso h3{font-size:1rem;margin-bottom:2px}
+  .paso p{font-size:.9rem;color:var(--gris)}
+
+  /* ===== SECCIONES ===== */
+  .seccion{margin-bottom:52px}
+  .seccion-head{margin-bottom:24px}
+  .seccion-head .kicker{
+    color:var(--cranberry);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;
+  }
+  .seccion-head h2{font-size:1.7rem;margin:4px 0 6px}
+  .seccion-head p{color:var(--gris);max-width:680px}
+
+  /* ===== TARJETAS ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+  .card{
+    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
+    padding:24px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--azul);
+  }
+  .card.comite::before{background:var(--oro)}
+  .card.opcional::before{background:var(--cranberry)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sombra-h);border-color:transparent}
+  .card .tag{
+    align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--azul);background:rgba(23,69,143,.08);padding:4px 10px;border-radius:6px;margin-bottom:14px;
+  }
+  .card.comite .tag{color:#b07a00;background:rgba(247,168,27,.14)}
+  .card.opcional .tag{color:var(--cranberry);background:rgba(212,19,103,.1)}
+  .card h3{font-size:1.18rem;margin-bottom:8px}
+  .card p{font-size:.93rem;color:var(--gris);flex:1;margin-bottom:18px}
+  .card .btn{
+    align-self:flex-start;background:var(--azul);color:#fff;font-weight:600;font-size:.92rem;
+    padding:10px 22px;border-radius:999px;transition:.2s;
+  }
+  .card .btn:hover{background:var(--azul-osc)}
+  .card.comite .btn{background:#b07a00}
+  .card.comite .btn:hover{background:#8a5f00}
+  .card.opcional .btn{background:var(--cranberry)}
+  .card.opcional .btn:hover{background:#a30e50}
+
+  /* ===== NOTA ===== */
+  .nota{
+    background:rgba(23,69,143,.05);border:1px dashed var(--azul);border-radius:var(--radio);
+    padding:20px 24px;font-size:.92rem;color:var(--gris);
+  }
+  .nota strong{color:var(--azul)}
+
+  /* ===== FOOTER ===== */
+  footer{
+    text-align:center;padding:36px 20px;color:var(--gris);font-size:.86rem;border-top:1px solid var(--linea);
+  }
+  footer .dot{color:var(--oro)}
+
+  @media(max-width:680px){
+    .hero h1{font-size:1.9rem}
+    .pasos{grid-template-columns:1fr;gap:18px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge" id="hero-badge">Rotaract · Mandato 2026–2027</span>
+  <h1 id="hero-title">Postúlate a un cargo del club</h1>
+  <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo mandato.</p>
+  <a class="cta" id="hero-cta" href="#cargos">Ver cargos y postularme ↓</a>
+</header>
+
+<main>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="pasos">
+    <div class="paso"><div class="n">1</div><div><h3>Explora los cargos</h3><p>Lee la función de cada puesto de la junta y de los comités.</p></div></div>
+    <div class="paso"><div class="n">2</div><div><h3>Postúlate</h3><p>Pulsa "Postularme" y completa el formulario con tus datos y motivación.</p></div></div>
+    <div class="paso"><div class="n">3</div><div><h3>Seguimiento</h3><p>La directiva revisa todas las postulaciones recibidas y se comunica contigo.</p></div></div>
+  </section>
+
+  <!-- JUNTA DIRECTIVA -->
+  <section class="seccion" id="cargos">
+    <div class="seccion-head">
+      <div class="kicker">Junta Directiva</div>
+      <h2>Dirigentes del club</h2>
+      <p>Los cargos que conforman la directiva y dirigen al club durante el año rotario.</p>
+    </div>
+    <div class="grid" id="grid-junta"></div>
+  </section>
+
+  <!-- COMITÉS -->
+  <section class="seccion">
+    <div class="seccion-head">
+      <div class="kicker">Comités permanentes</div>
+      <h2>Presidentes de comité (avenidas)</h2>
+      <p>Los cinco comités básicos recomendados por Rotary International para el buen funcionamiento del club.</p>
+    </div>
+    <div class="grid" id="grid-comites"></div>
+  </section>
+
+  <!-- OPCIONALES -->
+  <section class="seccion">
+    <div class="seccion-head">
+      <div class="kicker">Según la necesidad del club</div>
+      <h2>Comités opcionales</h2>
+      <p>Áreas adicionales que el club puede activar según sus prioridades y tamaño.</p>
+    </div>
+    <div class="grid" id="grid-opcionales"></div>
+  </section>
+
+  <div class="nota">
+    <strong>¿Eres el presidente o administrador?</strong> Para conectar los botones a tu formulario y editar los cargos, abre el archivo <strong>index.html</strong> y modifica el bloque <strong>CONFIG</strong> al final del código. No necesitas saber programar: solo cambia los textos y el enlace del formulario. Lee la <a href="guia-postulaciones.md" style="color:var(--azul);font-weight:600">guía de uso</a>.
+  </div>
+
+</main>
+
+<footer>
+  <p id="footer-text">Club Rotaract · Mandato 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
+</footer>
+
+<script>
+/* =========================================================================
+   ███  CONFIG — EDITA AQUÍ (no necesitas saber programar)  ███
+   =========================================================================
+   1) FORM_URL: pega el enlace de tu Google Form de postulaciones.
+   2) Cambia el nombre del club y el año del mandato si hace falta.
+   3) Agrega, quita o edita cargos en las listas de abajo.
+   Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
+   ========================================================================= */
+
+const CONFIG = {
+  nombreClub: "Club Rotaract",
+  mandato: "2026–2027",
+
+  // 👉 Pega aquí el enlace de tu Google Form (ver guia-postulaciones.md)
+  FORM_URL: "https://forms.gle/REEMPLAZA-CON-TU-FORMULARIO",
+
+  /* Si tu formulario tiene una pregunta "Puesto al que te postulas",
+     puedes pre-rellenarla automáticamente. Pega aquí el enlace
+     "prellenado" que te da Google Forms y deja el texto {{PUESTO}}
+     donde aparezca el nombre del cargo. Si lo dejas vacío,
+     todos los botones abren el formulario normal (FORM_URL). */
+  FORM_URL_PRELLENADO: ""
+};
+
+/* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
+const JUNTA = [
+  { titulo:"Presidente",        desc:"Máxima autoridad del club. Preside las reuniones, lidera el plan del año y designa los comités con aprobación de la directiva." },
+  { titulo:"Presidente electo",  desc:"Se prepara para asumir la presidencia el próximo año. Apoya al presidente y planifica la transición." },
+  { titulo:"Vicepresidente",     desc:"Preside las reuniones en ausencia del presidente y es miembro de todos los comités." },
+  { titulo:"Past presidente",    desc:"Presidente saliente. Asesora y aporta continuidad con base en su experiencia." },
+  { titulo:"Secretario",         desc:"Lleva las actas y los registros del club, controla la asistencia y la membresía." },
+  { titulo:"Tesorero",           desc:"Custodia los fondos del club y mantiene al día el registro de todas las operaciones." },
+  { titulo:"Macero",             desc:"Maestro de ceremonias. Vela por el orden y el buen desarrollo de las reuniones." }
+];
+
+/* ---- COMITÉS PERMANENTES (los 5 básicos) ---- */
+const COMITES = [
+  { titulo:"Administración del club", desc:"Coordina el funcionamiento eficaz del club y las actividades de recaudación de fondos, de la mano del tesorero." },
+  { titulo:"Membresía (cuadro social)", desc:"Desarrolla el plan de captación y retención de socios, y el servicio interno del club." },
+  { titulo:"Imagen pública", desc:"Maneja las redes sociales y la comunicación; cuenta la historia del club y promueve sus proyectos." },
+  { titulo:"Proyectos de servicio", desc:"Planifica y ejecuta los proyectos comunitarios y de servicio del club." },
+  { titulo:"La Fundación Rotaria", desc:"Promueve la participación y las contribuciones a La Fundación Rotaria." }
+];
+
+/* ---- COMITÉS OPCIONALES (según necesidad del club) ---- */
+const OPCIONALES = [
+  { titulo:"Empoderamiento de las niñas", desc:"Impulsa iniciativas a favor de las niñas y las mujeres en la comunidad." },
+  { titulo:"Polio (End Polio Now)", desc:"Coordina campañas de concientización y recaudación para erradicar la polio." },
+  { titulo:"Servicio internacional", desc:"Es el puente con clubes fuera del país y proyectos internacionales." },
+  { titulo:"Juventud", desc:"Conexión con el club padrino y clubes Interact, si los hubiera." }
+];
+
+/* =========================================================================
+   ███  No necesitas tocar nada de aquí hacia abajo  ███
+   ========================================================================= */
+function enlaceForm(puesto){
+  if (CONFIG.FORM_URL_PRELLENADO && CONFIG.FORM_URL_PRELLENADO.includes("{{PUESTO}}")){
+    return CONFIG.FORM_URL_PRELLENADO.replace("{{PUESTO}}", encodeURIComponent(puesto));
+  }
+  return CONFIG.FORM_URL;
+}
+function tarjeta(item, clase, etiqueta){
+  return `
+  <article class="card ${clase}">
+    <span class="tag">${etiqueta}</span>
+    <h3>${item.titulo}</h3>
+    <p>${item.desc}</p>
+    <a class="btn" href="${enlaceForm(item.titulo)}" target="_blank" rel="noopener">Postularme →</a>
+  </article>`;
+}
+function render(id, lista, clase, etiqueta){
+  document.getElementById(id).innerHTML = lista.map(i => tarjeta(i, clase, etiqueta)).join("");
+}
+document.getElementById("hero-badge").textContent = `${CONFIG.nombreClub} · Mandato ${CONFIG.mandato}`;
+document.getElementById("footer-text").innerHTML =
+  `${CONFIG.nombreClub} · Mandato ${CONFIG.mandato} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
+render("grid-junta", JUNTA, "junta", "Junta directiva");
+render("grid-comites", COMITES, "comite", "Comité");
+render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
+</script>
+</body>
+</html>
