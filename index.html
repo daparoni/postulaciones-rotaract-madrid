@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Postúlate — Cargos del Club Rotaract</title>
-<meta name="description" content="Conoce los cargos disponibles del club Rotaract para el nuevo mandato y postúlate." />
+<meta name="description" content="Conoce los cargos disponibles del club Rotaract para el nuevo periodo y postúlate." />
 <style>
   :root{
     --azul:#17458f;       /* Rotary Royal Azure */
@@ -162,9 +162,9 @@
 <body>
 
 <header class="hero">
-  <span class="badge" id="hero-badge">Rotaract · Mandato 2026–2027</span>
+  <span class="badge" id="hero-badge">Rotaract · Periodo 2026–2027</span>
   <h1 id="hero-title">Postúlate a un cargo del club</h1>
-  <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo mandato.</p>
+  <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo periodo.</p>
   <button class="cta" onclick="document.getElementById('cargos').scrollIntoView({behavior:'smooth'})">Ver cargos y postularme ↓</button>
 </header>
 
@@ -192,7 +192,7 @@
     <div class="seccion-head">
       <div class="kicker">Comités permanentes</div>
       <h2>Presidentes de comité (avenidas)</h2>
-      <p>Los cinco comités básicos recomendados por Rotary International para el buen funcionamiento del club.</p>
+      <p>Comités encargados de áreas clave para el buen funcionamiento del club.</p>
     </div>
     <div class="grid" id="grid-comites"></div>
   </section>
@@ -214,7 +214,7 @@
 </main>
 
 <footer>
-  <p id="footer-text">Club Rotaract · Mandato 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
+  <p id="footer-text">Club Rotaract · Periodo 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
 </footer>
 
 <!-- ===== MODAL DE POSTULACIÓN ===== -->
@@ -255,14 +255,14 @@
    =========================================================================
    1) FORMSPREE_ID: pega aquí el ID de tu formulario de Formspree.
       (Lo obtienes gratis en formspree.io — ver guia-postulaciones.md)
-   2) Cambia el nombre del club y el año del mandato si hace falta.
+   2) Cambia el nombre del club y el año del periodo si hace falta.
    3) Agrega, quita o edita cargos en las listas de abajo.
    Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
    ========================================================================= */
 
 const CONFIG = {
   nombreClub: "Club Rotaract",
-  mandato: "2026–2027",
+  periodo: "2026–2027",
 
   // 👉 Pega aquí SOLO el ID de tu formulario Formspree (ej. "xkoepjrn")
   //    La URL completa es https://formspree.io/f/EL-ID
@@ -271,28 +271,20 @@ const CONFIG = {
 
 /* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
 const JUNTA = [
-  { titulo:"Presidente",        desc:"Máxima autoridad del club. Preside las reuniones, lidera el plan del año y designa los comités con aprobación de la directiva." },
-  { titulo:"Presidente electo",  desc:"Se prepara para asumir la presidencia el próximo año. Apoya al presidente y planifica la transición." },
   { titulo:"Vicepresidente",     desc:"Preside las reuniones en ausencia del presidente y es miembro de todos los comités." },
-  { titulo:"Past presidente",    desc:"Presidente saliente. Asesora y aporta continuidad con base en su experiencia." },
   { titulo:"Secretario",         desc:"Lleva las actas y los registros del club, controla la asistencia y la membresía." },
   { titulo:"Tesorero",           desc:"Custodia los fondos del club y mantiene al día el registro de todas las operaciones." },
   { titulo:"Macero",             desc:"Maestro de ceremonias. Vela por el orden y el buen desarrollo de las reuniones." }
 ];
 
-/* ---- COMITÉS PERMANENTES (los 5 básicos) ---- */
+/* ---- COMITÉS PERMANENTES ---- */
 const COMITES = [
-  { titulo:"Administración del club", desc:"Coordina el funcionamiento eficaz del club y las actividades de recaudación de fondos, de la mano del tesorero." },
-  { titulo:"Membresía (cuadro social)", desc:"Desarrolla el plan de captación y retención de socios, y el servicio interno del club." },
   { titulo:"Imagen pública", desc:"Maneja las redes sociales y la comunicación; cuenta la historia del club y promueve sus proyectos." },
-  { titulo:"Proyectos de servicio", desc:"Planifica y ejecuta los proyectos comunitarios y de servicio del club." },
-  { titulo:"La Fundación Rotaria", desc:"Promueve la participación y las contribuciones a La Fundación Rotaria." }
+  { titulo:"Proyectos de servicio", desc:"Planifica y ejecuta los proyectos comunitarios y de servicio del club." }
 ];
 
 /* ---- COMITÉS OPCIONALES (según necesidad del club) ---- */
 const OPCIONALES = [
-  { titulo:"Empoderamiento de las niñas", desc:"Impulsa iniciativas a favor de las niñas y las mujeres en la comunidad." },
-  { titulo:"Polio (End Polio Now)", desc:"Coordina campañas de concientización y recaudación para erradicar la polio." },
   { titulo:"Servicio internacional", desc:"Es el puente con clubes fuera del país y proyectos internacionales." },
   { titulo:"Juventud", desc:"Conexión con el club padrino y clubes Interact, si los hubiera." }
 ];
@@ -313,9 +305,9 @@ function tarjeta(item, clase, etiqueta){
 function render(id, lista, clase, etiqueta){
   document.getElementById(id).innerHTML = lista.map(i => tarjeta(i, clase, etiqueta)).join("");
 }
-document.getElementById("hero-badge").textContent = `${CONFIG.nombreClub} · Mandato ${CONFIG.mandato}`;
+document.getElementById("hero-badge").textContent = `${CONFIG.nombreClub} · Periodo ${CONFIG.periodo}`;
 document.getElementById("footer-text").innerHTML =
-  `${CONFIG.nombreClub} · Mandato ${CONFIG.mandato} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
+  `${CONFIG.nombreClub} · Periodo ${CONFIG.periodo} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
 render("grid-junta", JUNTA, "junta", "Junta directiva");
 render("grid-comites", COMITES, "comite", "Comité");
 render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
