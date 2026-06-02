@@ -345,10 +345,10 @@ document.getElementById("form-postulacion").addEventListener("submit", function(
   e.preventDefault();
   const btn = document.getElementById("btn-enviar");
   const datos = {
-    puesto: document.getElementById("campo-puesto").value,
-    nombre: document.getElementById("campo-nombre").value.trim(),
-    motivo: document.getElementById("campo-motivo").value.trim(),
-    _subject: "Nueva postulación: " + document.getElementById("campo-puesto").value
+    "Puesto": document.getElementById("campo-puesto").value,
+    "Nombre y apellido": document.getElementById("campo-nombre").value.trim(),
+    "Por qué se postula": document.getElementById("campo-motivo").value.trim(),
+    "_subject": "Nueva postulación: " + document.getElementById("campo-puesto").value
   };
 
   if(!CONFIG.FORMSPREE_ID){
