@@ -129,9 +129,10 @@
   }
   @keyframes up{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
   .modal-head{background:linear-gradient(135deg,var(--azul-osc),var(--azul));color:#fff;padding:22px 24px;position:relative}
-  .modal-head .k{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;opacity:.85}
-  .modal-head h3{font-size:1.35rem;margin-top:2px}
-  .modal-head .x{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:1.1rem;cursor:pointer;line-height:1}
+  .modal-head .k{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;opacity:.85;padding-right:40px}
+  .modal-head h3{font-size:1.35rem;margin-top:2px;padding-right:40px}
+  .modal-head .x{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:grid;place-items:center;padding:0;line-height:1;z-index:3;transition:background .15s}
+  .modal-head .x:hover{background:rgba(255,255,255,.35)}
   .modal-body{padding:24px}
   .campo{margin-bottom:18px}
   .campo label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
