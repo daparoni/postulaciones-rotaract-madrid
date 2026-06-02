@@ -44,7 +44,7 @@
   .hero p{font-size:1.1rem;opacity:.92;max-width:620px;margin:0 auto 28px}
   .hero .cta{
     display:inline-block;background:var(--oro);color:var(--azul-osc);font-weight:700;
-    padding:14px 30px;border-radius:999px;font-size:1.02rem;transition:.2s;box-shadow:var(--sombra);
+    padding:14px 30px;border-radius:999px;font-size:1.02rem;transition:.2s;box-shadow:var(--sombra);cursor:pointer;border:none;font-family:inherit;
   }
   .hero .cta:hover{transform:translateY(-2px);box-shadow:var(--sombra-h)}
 
@@ -95,7 +95,7 @@
   .card p{font-size:.93rem;color:var(--gris);flex:1;margin-bottom:18px}
   .card .btn{
     align-self:flex-start;background:var(--azul);color:#fff;font-weight:600;font-size:.92rem;
-    padding:10px 22px;border-radius:999px;transition:.2s;
+    padding:10px 22px;border-radius:999px;transition:.2s;cursor:pointer;border:none;font-family:inherit;
   }
   .card .btn:hover{background:var(--azul-osc)}
   .card.comite .btn{background:#b07a00}
@@ -116,6 +116,43 @@
   }
   footer .dot{color:var(--oro)}
 
+  /* ===== MODAL ===== */
+  .overlay{
+    position:fixed;inset:0;background:rgba(12,60,124,.55);backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;padding:20px;z-index:50;
+  }
+  .overlay.open{display:flex;animation:fade .2s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{
+    background:var(--blanco);border-radius:var(--radio);max-width:480px;width:100%;
+    box-shadow:0 30px 70px rgba(0,0,0,.3);overflow:hidden;animation:up .25s ease;
+  }
+  @keyframes up{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+  .modal-head{background:linear-gradient(135deg,var(--azul-osc),var(--azul));color:#fff;padding:22px 24px;position:relative}
+  .modal-head .k{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;opacity:.85}
+  .modal-head h3{font-size:1.35rem;margin-top:2px}
+  .modal-head .x{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:1.1rem;cursor:pointer;line-height:1}
+  .modal-body{padding:24px}
+  .campo{margin-bottom:18px}
+  .campo label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
+  .campo input,.campo textarea{
+    width:100%;border:1.5px solid var(--linea);border-radius:10px;padding:11px 13px;
+    font-size:.95rem;font-family:inherit;color:var(--tinta);outline:none;transition:.15s;resize:vertical;
+  }
+  .campo input:focus,.campo textarea:focus{border-color:var(--azul)}
+  .enviar{
+    width:100%;background:var(--azul);color:#fff;border:none;font-family:inherit;font-weight:700;
+    font-size:1rem;padding:13px;border-radius:999px;cursor:pointer;transition:.2s;
+  }
+  .enviar:hover{background:var(--azul-osc)}
+  .enviar:disabled{opacity:.6;cursor:default}
+  .gracias{text-align:center;padding:42px 28px;display:none}
+  .gracias.show{display:block}
+  .gracias .big{font-size:48px;margin-bottom:10px}
+  .gracias h3{font-size:1.4rem;margin-bottom:6px}
+  .gracias p{color:var(--gris)}
+  .aviso-config{display:none;background:#fff6e6;border:1px solid var(--oro);color:#7a5600;border-radius:10px;padding:10px 12px;font-size:.85rem;margin-bottom:16px}
+
   @media(max-width:680px){
     .hero h1{font-size:1.9rem}
     .pasos{grid-template-columns:1fr;gap:18px}
@@ -128,7 +165,7 @@
   <span class="badge" id="hero-badge">Rotaract · Mandato 2026–2027</span>
   <h1 id="hero-title">Postúlate a un cargo del club</h1>
   <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo mandato.</p>
-  <a class="cta" id="hero-cta" href="#cargos">Ver cargos y postularme ↓</a>
+  <button class="cta" onclick="document.getElementById('cargos').scrollIntoView({behavior:'smooth'})">Ver cargos y postularme ↓</button>
 </header>
 
 <main>
@@ -136,8 +173,8 @@
   <!-- CÓMO FUNCIONA -->
   <section class="pasos">
     <div class="paso"><div class="n">1</div><div><h3>Explora los cargos</h3><p>Lee la función de cada puesto de la junta y de los comités.</p></div></div>
-    <div class="paso"><div class="n">2</div><div><h3>Postúlate</h3><p>Pulsa "Postularme" y completa el formulario con tus datos y motivación.</p></div></div>
-    <div class="paso"><div class="n">3</div><div><h3>Seguimiento</h3><p>La directiva revisa todas las postulaciones recibidas y se comunica contigo.</p></div></div>
+    <div class="paso"><div class="n">2</div><div><h3>Postúlate</h3><p>Pulsa "Postularme", escribe tu nombre y por qué te postulas, y envía.</p></div></div>
+    <div class="paso"><div class="n">3</div><div><h3>Seguimiento</h3><p>La directiva recibe todas las postulaciones y se comunica contigo.</p></div></div>
   </section>
 
   <!-- JUNTA DIRECTIVA -->
@@ -171,7 +208,7 @@
   </section>
 
   <div class="nota">
-    <strong>¿Eres el presidente o administrador?</strong> Para conectar los botones a tu formulario y editar los cargos, abre el archivo <strong>index.html</strong> y modifica el bloque <strong>CONFIG</strong> al final del código. No necesitas saber programar: solo cambia los textos y el enlace del formulario. Lee la <a href="guia-postulaciones.md" style="color:var(--azul);font-weight:600">guía de uso</a>.
+    <strong>¿Eres el presidente o administrador?</strong> Para que las postulaciones lleguen y editar los cargos, abre <strong>index.html</strong> y modifica el bloque <strong>CONFIG</strong> al final del código (pega ahí tu ID de Formspree). No necesitas saber programar. Lee la <a href="guia-postulaciones.md" style="color:var(--azul);font-weight:600">guía de uso</a>.
   </div>
 
 </main>
@@ -180,11 +217,44 @@
   <p id="footer-text">Club Rotaract · Mandato 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
 </footer>
 
+<!-- ===== MODAL DE POSTULACIÓN ===== -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="x" onclick="cerrarModal()" aria-label="Cerrar">×</button>
+      <div class="k">Postulación a</div>
+      <h3 id="modal-puesto">Cargo</h3>
+    </div>
+
+    <form class="modal-body" id="form-postulacion">
+      <div class="aviso-config" id="aviso-config">⚠️ El formulario aún no está conectado. El administrador debe pegar el ID de Formspree en el bloque CONFIG de index.html (ver la guía).</div>
+      <input type="hidden" name="puesto" id="campo-puesto" />
+      <div class="campo">
+        <label for="campo-nombre">Nombre y apellido</label>
+        <input type="text" id="campo-nombre" name="nombre" required placeholder="Ej. María Pérez" />
+      </div>
+      <div class="campo">
+        <label for="campo-motivo">¿Por qué te postulas a este puesto?</label>
+        <textarea id="campo-motivo" name="motivo" rows="4" required placeholder="Cuéntanos tu motivación y qué propones..."></textarea>
+      </div>
+      <button type="submit" class="enviar" id="btn-enviar">Enviar postulación</button>
+    </form>
+
+    <div class="gracias" id="gracias">
+      <div class="big">🎉</div>
+      <h3>¡Postulación enviada!</h3>
+      <p>Gracias por postularte. La directiva revisará tu solicitud y se pondrá en contacto contigo.</p>
+      <button class="enviar" style="margin-top:18px;max-width:200px" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
 <script>
 /* =========================================================================
    ███  CONFIG — EDITA AQUÍ (no necesitas saber programar)  ███
    =========================================================================
-   1) FORM_URL: pega el enlace de tu Google Form de postulaciones.
+   1) FORMSPREE_ID: pega aquí el ID de tu formulario de Formspree.
+      (Lo obtienes gratis en formspree.io — ver guia-postulaciones.md)
    2) Cambia el nombre del club y el año del mandato si hace falta.
    3) Agrega, quita o edita cargos en las listas de abajo.
    Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
@@ -194,15 +264,9 @@ const CONFIG = {
   nombreClub: "Club Rotaract",
   mandato: "2026–2027",
 
-  // 👉 Pega aquí el enlace de tu Google Form (ver guia-postulaciones.md)
-  FORM_URL: "https://forms.gle/REEMPLAZA-CON-TU-FORMULARIO",
-
-  /* Si tu formulario tiene una pregunta "Puesto al que te postulas",
-     puedes pre-rellenarla automáticamente. Pega aquí el enlace
-     "prellenado" que te da Google Forms y deja el texto {{PUESTO}}
-     donde aparezca el nombre del cargo. Si lo dejas vacío,
-     todos los botones abren el formulario normal (FORM_URL). */
-  FORM_URL_PRELLENADO: ""
+  // 👉 Pega aquí SOLO el ID de tu formulario Formspree (ej. "xkoepjrn")
+  //    La URL completa es https://formspree.io/f/EL-ID
+  FORMSPREE_ID: ""
 };
 
 /* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
@@ -236,19 +300,14 @@ const OPCIONALES = [
 /* =========================================================================
    ███  No necesitas tocar nada de aquí hacia abajo  ███
    ========================================================================= */
-function enlaceForm(puesto){
-  if (CONFIG.FORM_URL_PRELLENADO && CONFIG.FORM_URL_PRELLENADO.includes("{{PUESTO}}")){
-    return CONFIG.FORM_URL_PRELLENADO.replace("{{PUESTO}}", encodeURIComponent(puesto));
-  }
-  return CONFIG.FORM_URL;
-}
 function tarjeta(item, clase, etiqueta){
+  const p = item.titulo.replace(/'/g,"\\'");
   return `
   <article class="card ${clase}">
     <span class="tag">${etiqueta}</span>
     <h3>${item.titulo}</h3>
     <p>${item.desc}</p>
-    <a class="btn" href="${enlaceForm(item.titulo)}" target="_blank" rel="noopener">Postularme →</a>
+    <button class="btn" onclick="abrirModal('${p}')">Postularme →</button>
   </article>`;
 }
 function render(id, lista, clase, etiqueta){
@@ -260,6 +319,58 @@ document.getElementById("footer-text").innerHTML =
 render("grid-junta", JUNTA, "junta", "Junta directiva");
 render("grid-comites", COMITES, "comite", "Comité");
 render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
+
+/* ---- MODAL ---- */
+const overlay = document.getElementById("overlay");
+function abrirModal(puesto){
+  document.getElementById("modal-puesto").textContent = puesto;
+  document.getElementById("campo-puesto").value = puesto;
+  document.getElementById("form-postulacion").reset();
+  document.getElementById("campo-puesto").value = puesto;
+  document.getElementById("form-postulacion").style.display = "block";
+  document.getElementById("gracias").classList.remove("show");
+  document.getElementById("aviso-config").style.display = CONFIG.FORMSPREE_ID ? "none" : "block";
+  overlay.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function cerrarModal(){
+  overlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+overlay.addEventListener("click", e => { if(e.target === overlay) cerrarModal(); });
+document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarModal(); });
+
+/* ---- ENVÍO A FORMSPREE ---- */
+document.getElementById("form-postulacion").addEventListener("submit", function(e){
+  e.preventDefault();
+  const btn = document.getElementById("btn-enviar");
+  const datos = {
+    puesto: document.getElementById("campo-puesto").value,
+    nombre: document.getElementById("campo-nombre").value.trim(),
+    motivo: document.getElementById("campo-motivo").value.trim(),
+    _subject: "Nueva postulación: " + document.getElementById("campo-puesto").value
+  };
+
+  if(!CONFIG.FORMSPREE_ID){
+    // Sin conectar: muestra gracias igualmente para no bloquear la demo
+    mostrarGracias();
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Enviando...";
+  fetch("https://formspree.io/f/" + CONFIG.FORMSPREE_ID, {
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body: JSON.stringify(datos)
+  })
+  .then(r => { if(!r.ok) throw new Error(); mostrarGracias(); })
+  .catch(() => { alert("No se pudo enviar. Revisa tu conexión e inténtalo de nuevo."); })
+  .finally(() => { btn.disabled = false; btn.textContent = "Enviar postulación"; });
+});
+
+function mostrarGracias(){
+  document.getElementById("form-postulacion").style.display = "none";
+  document.getElementById("gracias").classList.add("show");
+}
 </script>
 </body>
 </html>

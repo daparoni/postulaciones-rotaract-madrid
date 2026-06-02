@@ -1,46 +1,44 @@
-# Guía: crear el formulario y controlar las postulaciones
+# Guía: conectar el formulario y ver las postulaciones
 
-Esta guía explica, paso a paso y sin tecnicismos, cómo dejar la web lista para recibir postulaciones.
+El formulario de postulación ya está **dentro de la página** (al pulsar "Postularme" en cualquier cargo se abre con tu diseño).
+Solo falta conectarlo a **Formspree** para que las postulaciones se guarden y te lleguen. Es gratis y se hace una sola vez.
 
-## Paso 1 — Crear el Google Form (gratis)
+## Paso 1 — Crear el formulario en Formspree (gratis)
 
-1. Entra a [forms.google.com](https://forms.google.com) con la cuenta del club.
-2. Crea un formulario nuevo. Título sugerido: **"Postulación a cargos — Club Rotaract 2026–2027"**.
-3. Agrega estas preguntas (puedes ajustarlas):
-   - **Nombre completo** (texto corto) — obligatoria
-   - **Correo / WhatsApp de contacto** (texto corto) — obligatoria
-   - **Puesto al que te postulas** (desplegable) — obligatoria
-     - Pon como opciones todos los cargos: Presidente, Vicepresidente, Secretario, Tesorero, Macero, Administración del club, Membresía, Imagen pública, Proyectos de servicio, La Fundación Rotaria, etc.
-   - **¿Por qué te postulas? / ¿Qué propones?** (párrafo) — obligatoria
-   - **Tiempo en el club / experiencia previa** (párrafo) — opcional
+1. Entra a [formspree.io](https://formspree.io) y crea una cuenta (puedes usar tu correo de Google).
+2. Pulsa **+ New form**. Ponle un nombre, por ejemplo "Postulaciones Rotaract".
+3. Indica el correo donde quieres recibir las postulaciones.
+4. Formspree te dará una URL como `https://formspree.io/f/abcdwxyz`.
+   El **ID** es la última parte: `abcdwxyz`.
 
-## Paso 2 — Obtener el enlace y pegarlo en la web
+## Paso 2 — Pegar el ID en la web
 
-1. En el formulario, pulsa **Enviar** → pestaña del **enlace** 🔗 → **Acortar URL** → **Copiar**.
-2. Abre `index.html`, busca el bloque **CONFIG** (al final) y pega el enlace en:
+1. Abre `index.html` y busca el bloque **CONFIG** (al final del archivo).
+2. Pega tu ID entre las comillas:
    ```
-   FORM_URL: "https://forms.gle/TU-ENLACE",
+   FORMSPREE_ID: "abcdwxyz"
    ```
-3. Guarda y sube el cambio a GitHub.
+3. Guarda y sube el cambio a GitHub. ¡Listo! Las postulaciones ya se envían.
 
-## Paso 3 — (Opcional) Pre-rellenar el puesto automáticamente
+> Mientras `FORMSPREE_ID` esté vacío, el formulario muestra un aviso y no envía nada (modo prueba).
 
-Para que al pulsar "Postularme" en un cargo el formulario ya traiga ese puesto seleccionado:
+## Paso 3 — Ver y controlar las postulaciones
 
-1. En el formulario: menú **⋮** (arriba a la derecha) → **Obtener enlace prerrellenado**.
-2. Selecciona en la pregunta "Puesto" cualquier opción y pulsa **Obtener enlace**.
-3. Copia el enlace. En él verás algo como `entry.123456=Presidente`.
-4. Reemplaza el nombre del puesto por `{{PUESTO}}` y pégalo en `FORM_URL_PRELLENADO`. Ejemplo:
-   ```
-   FORM_URL_PRELLENADO: "https://docs.google.com/forms/d/e/XXXX/viewform?usp=pp_url&entry.123456={{PUESTO}}",
-   ```
+- Cada postulación te llega por **correo** y queda guardada en el **panel de Formspree**.
+- En el panel puedes ver todas las postulaciones, filtrarlas por cargo y **exportarlas a CSV/Excel**.
+- Cada envío incluye: **puesto**, **nombre y apellido** y **por qué se postula**.
 
-## Paso 4 — Controlar las postulaciones
+## Límites del plan gratuito
 
-1. En el formulario, abre la pestaña **Respuestas**.
-2. Pulsa el icono verde de **Hojas de cálculo** para volcar todo a una hoja de Google.
-3. Ahí ves, filtras y exportas (a Excel) todas las postulaciones por cargo, en tiempo real.
+El plan gratis de Formspree permite alrededor de **50 envíos al mes**, suficiente para una elección.
+Si esperas muchísimas postulaciones, puedes crear varios formularios o subir de plan.
 
 ## Cerrar las postulaciones
 
-Cuando termine el periodo, en el formulario desactiva **"Aceptar respuestas"**. La web seguirá visible como referencia.
+Cuando termine el periodo, en Formspree puedes **desactivar el formulario** (Form → Settings).
+La web seguirá visible como referencia.
+
+## Heredar al próximo mandato
+
+El próximo presidente solo crea su propio formulario en Formspree, pega el nuevo `FORMSPREE_ID`
+y actualiza el año del mandato y los cargos en `index.html`. Nada caduca entre mandatos.
