@@ -1,390 +1,790 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Postúlate — Cargos del Club Rotaract</title>
-<meta name="description" content="Conoce los cargos disponibles del club Rotaract para el nuevo periodo y postúlate." />
-<style>
-  :root{
-    --azul:#17458f;        /* Rotary Royal Azure */
-    --azul-osc:#0c3c7c;
-    --cranberry:#d41367;   /* Rotaract */
-    --cranberry-osc:#a30e50;
-    --gris-n:#64748b;      /* gris neutro */
-    --gris-n-osc:#475569;
-    --tinta:#1a1a2e;
-    --gris:#5b6472;
-    --linea:#e7eaf0;
-    --fondo:#f4f6fb;
-    --blanco:#ffffff;
-    --sombra:0 4px 20px rgba(12,60,124,.08);
-    --sombra-h:0 12px 30px rgba(12,60,124,.16);
-    --radio:16px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--tinta);background:var(--fondo);line-height:1.6;
-  }
-  a{color:inherit;text-decoration:none}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postúlate — Cargos del Club Rotaract</title>
+  <meta name="description"
+    content="Conoce los cargos disponibles del club Rotaract para el nuevo periodo y postúlate." />
+  <style>
+    :root {
+      --azul: #17458f;
+      /* Rotary Royal Azure */
+      --azul-osc: #0c3c7c;
+      --cranberry: #d41367;
+      /* Rotaract */
+      --cranberry-osc: #a30e50;
+      --gris-n: #64748b;
+      /* gris neutro */
+      --gris-n-osc: #475569;
+      --tinta: #1a1a2e;
+      --gris: #5b6472;
+      --linea: #e7eaf0;
+      --fondo: #f4f6fb;
+      --blanco: #ffffff;
+      --sombra: 0 4px 20px rgba(12, 60, 124, .08);
+      --sombra-h: 0 12px 30px rgba(12, 60, 124, .16);
+      --radio: 16px;
+    }
 
-  /* ===== HERO ===== */
-  header.hero{
-    background:linear-gradient(135deg,var(--azul-osc),var(--azul));
-    color:#fff;padding:64px 20px 90px;text-align:center;position:relative;overflow:hidden;
-  }
-  header.hero::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
-    background:linear-gradient(90deg,var(--cranberry),var(--azul));
-  }
-  .hero-logo{width:min(360px,72%);height:auto;display:block;margin:0 auto 24px}
-  .hero .badge{
-    display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
-    padding:6px 16px;border-radius:999px;font-size:.82rem;letter-spacing:.5px;margin-bottom:18px;
-  }
-  .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;max-width:760px;margin:0 auto 14px}
-  .hero p{font-size:1.1rem;opacity:.92;max-width:620px;margin:0 auto 28px}
-  .hero .cta{
-    display:inline-block;background:var(--cranberry);color:#fff;font-weight:700;
-    padding:14px 30px;border-radius:999px;font-size:1.02rem;transition:.2s;box-shadow:var(--sombra);cursor:pointer;border:none;font-family:inherit;
-  }
-  .hero .cta:hover{background:var(--cranberry-osc);transform:translateY(-2px);box-shadow:var(--sombra-h)}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-  /* ===== CONTENEDOR ===== */
-  main{max-width:1080px;margin:-50px auto 0;padding:0 20px 80px;position:relative;z-index:2}
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--tinta);
+      background: var(--fondo);
+      line-height: 1.6;
+    }
 
-  /* ===== PASOS ===== */
-  .pasos{
-    background:var(--blanco);border-radius:var(--radio);box-shadow:var(--sombra);
-    padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:54px;
-  }
-  .paso{display:flex;gap:14px;align-items:flex-start}
-  .paso .n{
-    flex:0 0 38px;height:38px;border-radius:50%;background:var(--cranberry);color:#fff;
-    display:grid;place-items:center;font-weight:700;
-  }
-  .paso h3{font-size:1rem;margin-bottom:2px}
-  .paso p{font-size:.9rem;color:var(--gris)}
+    a {
+      color: inherit;
+      text-decoration: none
+    }
 
-  /* ===== SECCIONES ===== */
-  .seccion{margin-bottom:52px}
-  .seccion-head{margin-bottom:24px}
-  .seccion-head .kicker{
-    color:var(--cranberry);font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;
-  }
-  .seccion-head h2{font-size:1.7rem;margin:4px 0 6px}
-  .seccion-head p{color:var(--gris);max-width:680px}
+    /* ===== HERO ===== */
+    header.hero {
+      background: linear-gradient(135deg, var(--azul-osc), var(--azul));
+      color: #fff;
+      padding: 64px 20px 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* ===== TARJETAS ===== */
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
-  .card{
-    background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
-    padding:24px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;
-  }
-  /* Junta directiva (por defecto) → cranberry */
-  .card::before{
-    content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--cranberry);
-  }
-  .card.comite::before{background:var(--azul)}
-  .card.opcional::before{background:var(--gris-n)}
-  .card:hover{transform:translateY(-4px);box-shadow:var(--sombra-h);border-color:transparent}
-  .card .tag{
-    align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-    color:var(--cranberry);background:rgba(212,19,103,.1);padding:4px 10px;border-radius:6px;margin-bottom:14px;
-  }
-  .card.comite .tag{color:var(--azul);background:rgba(23,69,143,.1)}
-  .card.opcional .tag{color:var(--gris-n-osc);background:rgba(100,116,139,.12)}
-  .card h3{font-size:1.18rem;margin-bottom:8px}
-  .card p{font-size:.93rem;color:var(--gris);flex:1;margin-bottom:18px}
-  .card .btn{
-    align-self:flex-start;background:var(--cranberry);color:#fff;font-weight:600;font-size:.92rem;
-    padding:10px 22px;border-radius:999px;transition:.2s;cursor:pointer;border:none;font-family:inherit;
-  }
-  .card .btn:hover{background:var(--cranberry-osc)}
-  .card.comite .btn{background:var(--azul)}
-  .card.comite .btn:hover{background:var(--azul-osc)}
-  .card.opcional .btn{background:var(--gris-n)}
-  .card.opcional .btn:hover{background:var(--gris-n-osc)}
+    header.hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--cranberry), var(--azul));
+    }
 
-  /* ===== FOOTER ===== */
-  footer{
-    text-align:center;padding:36px 20px;background:var(--azul);color:rgba(255,255,255,.9);font-size:.86rem;
-  }
-  footer .dot{color:#fff}
+    .hero-logo {
+      width: min(360px, 72%);
+      height: auto;
+      display: block;
+      margin: 0 auto 14px
+    }
 
-  /* ===== MODAL ===== */
-  .overlay{
-    position:fixed;inset:0;background:rgba(12,60,124,.55);backdrop-filter:blur(3px);
-    display:none;align-items:center;justify-content:center;padding:20px;z-index:50;
-  }
-  .overlay.open{display:flex;animation:fade .2s ease}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  .modal{
-    background:var(--blanco);border-radius:var(--radio);max-width:480px;width:100%;max-height:92vh;overflow-y:auto;
-    box-shadow:0 30px 70px rgba(0,0,0,.3);animation:up .25s ease;
-  }
-  @keyframes up{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
-  .modal-head{background:linear-gradient(135deg,var(--azul-osc),var(--azul));color:#fff;padding:22px 24px;position:relative}
-  .modal-head .k{font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;opacity:.85;padding-right:40px}
-  .modal-head h3{font-size:1.35rem;margin-top:2px;padding-right:40px}
-  .modal-head .x{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:grid;place-items:center;padding:0;line-height:1;z-index:3;transition:background .15s}
-  .modal-head .x:hover{background:rgba(255,255,255,.35)}
-  .modal-body{padding:24px}
-  .fecha-limite{
-    display:none;background:rgba(212,19,103,.08);border:1px solid var(--cranberry);color:var(--cranberry-osc);
-    border-radius:10px;padding:10px 12px;font-size:.88rem;font-weight:600;margin-bottom:18px;text-align:center;
-  }
-  .campo{margin-bottom:18px}
-  .campo label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
-  .campo input,.campo textarea{
-    width:100%;border:1.5px solid var(--linea);border-radius:10px;padding:11px 13px;
-    font-size:.95rem;font-family:inherit;color:var(--tinta);outline:none;transition:.15s;resize:vertical;
-  }
-  .campo input:focus,.campo textarea:focus{border-color:var(--cranberry)}
-  .enviar{
-    width:100%;background:var(--cranberry);color:#fff;border:none;font-family:inherit;font-weight:700;
-    font-size:1rem;padding:13px;border-radius:999px;cursor:pointer;transition:.2s;
-  }
-  .enviar:hover{background:var(--cranberry-osc)}
-  .enviar:disabled{opacity:.6;cursor:default}
-  .gracias{text-align:center;padding:42px 28px;display:none}
-  .gracias.show{display:block}
-  .gracias .big{font-size:48px;margin-bottom:10px}
-  .gracias h3{font-size:1.4rem;margin-bottom:6px}
-  .gracias p{color:var(--gris)}
-  .aviso-config{display:none;background:#fff6e6;border:1px solid #f7a81b;color:#7a5600;border-radius:10px;padding:10px 12px;font-size:.85rem;margin-bottom:16px}
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .3);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: .82rem;
+      letter-spacing: .5px;
+      margin-bottom: 18px;
+    }
 
-  @media(max-width:680px){
-    .hero h1{font-size:1.9rem}
-    .pasos{grid-template-columns:1fr;gap:18px}
-  }
-</style>
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      max-width: 760px;
+      margin: 0 auto 14px
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: .92;
+      max-width: 620px;
+      margin: 0 auto 28px
+    }
+
+    .hero .cta {
+      display: inline-block;
+      background: var(--cranberry);
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-size: 1.02rem;
+      transition: .2s;
+      box-shadow: var(--sombra);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .hero .cta:hover {
+      background: var(--cranberry-osc);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-h)
+    }
+
+    /* ===== CONTENEDOR ===== */
+    main {
+      max-width: 1080px;
+      margin: -50px auto 0;
+      padding: 0 20px 80px;
+      position: relative;
+      z-index: 2
+    }
+
+    /* ===== PASOS ===== */
+    .pasos {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 54px;
+    }
+
+    .paso {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .paso .n {
+      flex: 0 0 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--cranberry);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+    }
+
+    .paso h3 {
+      font-size: 1rem;
+      margin-bottom: 2px
+    }
+
+    .paso p {
+      font-size: .9rem;
+      color: var(--gris)
+    }
+
+    /* ===== SECCIONES ===== */
+    .seccion {
+      margin-bottom: 52px
+    }
+
+    .seccion-head {
+      margin-bottom: 24px
+    }
+
+    .seccion-head .kicker {
+      color: var(--cranberry);
+      font-weight: 700;
+      font-size: .85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .seccion-head h2 {
+      font-size: 1.7rem;
+      margin: 4px 0 6px
+    }
+
+    .seccion-head p {
+      color: var(--gris);
+      max-width: 680px
+    }
+
+    /* ===== TARJETAS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 22px
+    }
+
+    .card {
+      background: var(--blanco);
+      border: 1px solid var(--linea);
+      border-radius: var(--radio);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Junta directiva (por defecto) → cranberry */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--cranberry);
+    }
+
+    .card.comite::before {
+      background: var(--azul)
+    }
+
+    .card.opcional::before {
+      background: var(--gris-n)
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sombra-h);
+      border-color: transparent
+    }
+
+    .card .tag {
+      align-self: flex-start;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--cranberry);
+      background: rgba(212, 19, 103, .1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .card.comite .tag {
+      color: var(--azul);
+      background: rgba(23, 69, 143, .1)
+    }
+
+    .card.opcional .tag {
+      color: var(--gris-n-osc);
+      background: rgba(100, 116, 139, .12)
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 8px
+    }
+
+    .card p {
+      font-size: .93rem;
+      color: var(--gris);
+      flex: 1;
+      margin-bottom: 18px
+    }
+
+    .card .btn {
+      align-self: flex-start;
+      background: var(--cranberry);
+      color: #fff;
+      font-weight: 600;
+      font-size: .92rem;
+      padding: 10px 22px;
+      border-radius: 999px;
+      transition: .2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .card .btn:hover {
+      background: var(--cranberry-osc)
+    }
+
+    .card.comite .btn {
+      background: var(--azul)
+    }
+
+    .card.comite .btn:hover {
+      background: var(--azul-osc)
+    }
+
+    .card.opcional .btn {
+      background: var(--gris-n)
+    }
+
+    .card.opcional .btn:hover {
+      background: var(--gris-n-osc)
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      background: var(--azul);
+      color: rgba(255, 255, 255, .9);
+      font-size: .86rem;
+    }
+
+    footer .dot {
+      color: #fff
+    }
+
+    /* ===== MODAL ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 60, 124, .55);
+      backdrop-filter: blur(3px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 50;
+    }
+
+    .overlay.open {
+      display: flex;
+      animation: fade .2s ease
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .modal {
+      background: var(--blanco);
+      border-radius: var(--radio);
+      max-width: 480px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .3);
+      animation: up .25s ease;
+    }
+
+    @keyframes up {
+      from {
+        transform: translateY(16px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1
+      }
+    }
+
+    .modal-head {
+      background: linear-gradient(135deg, var(--azul-osc), var(--azul));
+      color: #fff;
+      padding: 22px 24px;
+      position: relative
+    }
+
+    .modal-head .k {
+      font-size: .75rem;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      opacity: .85;
+      padding-right: 40px
+    }
+
+    .modal-head h3 {
+      font-size: 1.35rem;
+      margin-top: 2px;
+      padding-right: 40px
+    }
+
+    .modal-head .x {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: rgba(255, 255, 255, .2);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      line-height: 1;
+      z-index: 3;
+      transition: background .15s
+    }
+
+    .modal-head .x:hover {
+      background: rgba(255, 255, 255, .35)
+    }
+
+    .modal-body {
+      padding: 24px
+    }
+
+    .fecha-limite {
+      display: none;
+      background: rgba(212, 19, 103, .08);
+      border: 1px solid var(--cranberry);
+      color: var(--cranberry-osc);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .campo {
+      margin-bottom: 18px
+    }
+
+    .campo label {
+      display: block;
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: 6px
+    }
+
+    .campo input,
+    .campo textarea {
+      width: 100%;
+      border: 1.5px solid var(--linea);
+      border-radius: 10px;
+      padding: 11px 13px;
+      font-size: .95rem;
+      font-family: inherit;
+      color: var(--tinta);
+      outline: none;
+      transition: .15s;
+      resize: vertical;
+    }
+
+    .campo input:focus,
+    .campo textarea:focus {
+      border-color: var(--cranberry)
+    }
+
+    .enviar {
+      width: 100%;
+      background: var(--cranberry);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .enviar:hover {
+      background: var(--cranberry-osc)
+    }
+
+    .enviar:disabled {
+      opacity: .6;
+      cursor: default
+    }
+
+    .gracias {
+      text-align: center;
+      padding: 42px 28px;
+      display: none
+    }
+
+    .gracias.show {
+      display: block
+    }
+
+    .gracias .big {
+      font-size: 48px;
+      margin-bottom: 10px
+    }
+
+    .gracias h3 {
+      font-size: 1.4rem;
+      margin-bottom: 6px
+    }
+
+    .gracias p {
+      color: var(--gris)
+    }
+
+    .aviso-config {
+      display: none;
+      background: #fff6e6;
+      border: 1px solid #f7a81b;
+      color: #7a5600;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: .85rem;
+      margin-bottom: 16px
+    }
+
+    @media(max-width:680px) {
+      .hero h1 {
+        font-size: 1.9rem
+      }
+
+      .pasos {
+        grid-template-columns: 1fr;
+        gap: 18px
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="hero">
-  <img class="hero-logo" src="logo.svg" alt="Rotaract Club Madrid" />
-  <span class="badge" id="hero-badge">Periodo 2026–2027</span>
-  <h1 id="hero-title">Postúlate a un cargo del club</h1>
-  <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo periodo.</p>
-  <button class="cta" onclick="document.getElementById('cargos').scrollIntoView({behavior:'smooth'})">Ver cargos y postularme ↓</button>
-</header>
+  <header class="hero">
+    <img class="hero-logo" src="logo.png" alt="Rotaract Club Madrid" />
+    <span class="badge" id="hero-badge">Periodo 2026–2027</span>
+    <h1 id="hero-title">Postúlate a un cargo del club</h1>
+    <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio
+      se postule a los cargos disponibles del nuevo periodo.</p>
+    <button class="cta" onclick="document.getElementById('cargos').scrollIntoView({behavior:'smooth'})">Ver cargos y
+      postularme ↓</button>
+  </header>
 
-<main>
+  <main>
 
-  <!-- CÓMO FUNCIONA -->
-  <section class="pasos">
-    <div class="paso"><div class="n">1</div><div><h3>Explora los cargos</h3><p>Lee la función de cada puesto de la junta y de los comités.</p></div></div>
-    <div class="paso"><div class="n">2</div><div><h3>Postúlate</h3><p>Pulsa "Postularme", escribe tu nombre y por qué te postulas, y envía.</p></div></div>
-    <div class="paso"><div class="n">3</div><div><h3>Seguimiento</h3><p>La directiva recibe todas las postulaciones y se comunica contigo.</p></div></div>
-  </section>
-
-  <!-- JUNTA DIRECTIVA -->
-  <section class="seccion" id="cargos">
-    <div class="seccion-head">
-      <div class="kicker">Junta Directiva</div>
-      <h2>Dirigentes del club</h2>
-      <p>Los cargos que conforman la directiva y dirigen al club durante el año rotario.</p>
-    </div>
-    <div class="grid" id="grid-junta"></div>
-  </section>
-
-  <!-- COMITÉS -->
-  <section class="seccion">
-    <div class="seccion-head">
-      <div class="kicker">Comités permanentes</div>
-      <h2>Presidentes de comité (avenidas)</h2>
-      <p>Comités encargados de áreas clave para el buen funcionamiento del club.</p>
-    </div>
-    <div class="grid" id="grid-comites"></div>
-  </section>
-
-  <!-- OPCIONALES -->
-  <section class="seccion">
-    <div class="seccion-head">
-      <div class="kicker">Según la necesidad del club</div>
-      <h2>Comités opcionales</h2>
-      <p>Áreas adicionales que el club puede activar según sus prioridades y tamaño.</p>
-    </div>
-    <div class="grid" id="grid-opcionales"></div>
-  </section>
-
-</main>
-
-<footer>
-  <p id="footer-text">Periodo 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
-</footer>
-
-<!-- ===== MODAL DE POSTULACIÓN ===== -->
-<div class="overlay" id="overlay">
-  <div class="modal">
-    <div class="modal-head">
-      <button class="x" onclick="cerrarModal()" aria-label="Cerrar">×</button>
-      <div class="k">Postulación a</div>
-      <h3 id="modal-puesto">Cargo</h3>
-    </div>
-
-    <form class="modal-body" id="form-postulacion">
-      <div class="aviso-config" id="aviso-config">⚠️ El formulario aún no está conectado. El administrador debe pegar el ID de Formspree en el bloque CONFIG de index.html (ver la guía).</div>
-      <div class="fecha-limite" id="fecha-limite"></div>
-      <input type="hidden" name="puesto" id="campo-puesto" />
-      <div class="campo">
-        <label for="campo-nombre">Nombre y apellido</label>
-        <input type="text" id="campo-nombre" name="nombre" required placeholder="Ej. María Pérez" />
+    <!-- CÓMO FUNCIONA -->
+    <section class="pasos">
+      <div class="paso">
+        <div class="n">1</div>
+        <div>
+          <h3>Explora los cargos</h3>
+          <p>Lee la función de cada puesto de la junta y de los comités.</p>
+        </div>
       </div>
-      <div class="campo">
-        <label for="campo-correo">Correo electrónico</label>
-        <input type="email" id="campo-correo" name="correo" required placeholder="tu@correo.com" />
+      <div class="paso">
+        <div class="n">2</div>
+        <div>
+          <h3>Postúlate</h3>
+          <p>Pulsa "Postularme", escribe tu nombre y por qué te postulas, y envía.</p>
+        </div>
       </div>
-      <div class="campo">
-        <label for="campo-motivo">¿Por qué te postulas a este puesto?</label>
-        <textarea id="campo-motivo" name="motivo" rows="4" required placeholder="Cuéntanos tu motivación y qué propones..."></textarea>
+      <div class="paso">
+        <div class="n">3</div>
+        <div>
+          <h3>Seguimiento</h3>
+          <p>La directiva recibe todas las postulaciones y se comunica contigo.</p>
+        </div>
       </div>
-      <div class="campo">
-        <label for="campo-experiencia">¿Tienes experiencia previa en este cargo o uno similar?</label>
-        <textarea id="campo-experiencia" name="experiencia" rows="3" required placeholder="Describe tu experiencia, o escribe 'No' si no tienes."></textarea>
-      </div>
-      <button type="submit" class="enviar" id="btn-enviar">Enviar postulación</button>
-    </form>
+    </section>
 
-    <div class="gracias" id="gracias">
-      <div class="big">🎉</div>
-      <h3>¡Postulación enviada!</h3>
-      <p>Gracias por postularte. La directiva revisará tu solicitud y se pondrá en contacto contigo.</p>
-      <button class="enviar" style="margin-top:18px;max-width:200px" onclick="cerrarModal()">Cerrar</button>
+    <!-- JUNTA DIRECTIVA -->
+    <section class="seccion" id="cargos">
+      <div class="seccion-head">
+        <div class="kicker">Junta Directiva</div>
+        <h2>Dirigentes del club</h2>
+        <p>Los cargos que conforman la directiva y dirigen al club durante el año rotario.</p>
+      </div>
+      <div class="grid" id="grid-junta"></div>
+    </section>
+
+    <!-- COMITÉS -->
+    <section class="seccion">
+      <div class="seccion-head">
+        <div class="kicker">Comités permanentes</div>
+        <h2>Presidentes de comité (avenidas)</h2>
+        <p>Comités encargados de áreas clave para el buen funcionamiento del club.</p>
+      </div>
+      <div class="grid" id="grid-comites"></div>
+    </section>
+
+    <!-- OPCIONALES -->
+    <section class="seccion">
+      <div class="seccion-head">
+        <div class="kicker">Según la necesidad del club</div>
+        <h2>Comités opcionales</h2>
+        <p>Áreas adicionales que el club puede activar según sus prioridades y tamaño.</p>
+      </div>
+      <div class="grid" id="grid-opcionales"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p id="footer-text">Periodo 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras
+      generaciones.</p>
+  </footer>
+
+  <!-- ===== MODAL DE POSTULACIÓN ===== -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="modal-head">
+        <button class="x" onclick="cerrarModal()" aria-label="Cerrar">×</button>
+        <div class="k">Postulación a</div>
+        <h3 id="modal-puesto">Cargo</h3>
+      </div>
+
+      <form class="modal-body" id="form-postulacion">
+        <div class="aviso-config" id="aviso-config">⚠️ El formulario aún no está conectado. El administrador debe pegar
+          el ID de Formspree en el bloque CONFIG de index.html (ver la guía).</div>
+        <div class="fecha-limite" id="fecha-limite"></div>
+        <input type="hidden" name="puesto" id="campo-puesto" />
+        <div class="campo">
+          <label for="campo-nombre">Nombre y apellido</label>
+          <input type="text" id="campo-nombre" name="nombre" required placeholder="Ej. María Pérez" />
+        </div>
+        <div class="campo">
+          <label for="campo-correo">Correo electrónico</label>
+          <input type="email" id="campo-correo" name="correo" required placeholder="tu@correo.com" />
+        </div>
+        <div class="campo">
+          <label for="campo-motivo">¿Por qué te postulas a este puesto?</label>
+          <textarea id="campo-motivo" name="motivo" rows="4" required
+            placeholder="Cuéntanos tu motivación y qué propones..."></textarea>
+        </div>
+        <div class="campo">
+          <label for="campo-experiencia">¿Tienes experiencia previa en este cargo o uno similar?</label>
+          <textarea id="campo-experiencia" name="experiencia" rows="3" required
+            placeholder="Describe tu experiencia, o escribe 'No' si no tienes."></textarea>
+        </div>
+        <button type="submit" class="enviar" id="btn-enviar">Enviar postulación</button>
+      </form>
+
+      <div class="gracias" id="gracias">
+        <div class="big">🎉</div>
+        <h3>¡Postulación enviada!</h3>
+        <p>Gracias por postularte. La directiva revisará tu solicitud y se pondrá en contacto contigo.</p>
+        <button class="enviar" style="margin-top:18px;max-width:200px" onclick="cerrarModal()">Cerrar</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-/* =========================================================================
-   ███  CONFIG — EDITA AQUÍ (no necesitas saber programar)  ███
-   =========================================================================
-   1) FORMSPREE_ID: pega aquí el ID de tu formulario de Formspree.
-      (Lo obtienes gratis en formspree.io — ver guia-postulaciones.md)
-   2) fechaLimite: fecha tope para postularse (se muestra en el formulario).
-      Déjala vacía "" si no quieres mostrar fecha.
-   3) Cambia el nombre del club y el año del periodo si hace falta.
-   4) Agrega, quita o edita cargos en las listas de abajo.
-   Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
-   ========================================================================= */
+  <script>
+    /* =========================================================================
+       ███  CONFIG — EDITA AQUÍ (no necesitas saber programar)  ███
+       =========================================================================
+       1) FORMSPREE_ID: pega aquí el ID de tu formulario de Formspree.
+          (Lo obtienes gratis en formspree.io — ver guia-postulaciones.md)
+       2) fechaLimite: fecha tope para postularse (se muestra en el formulario).
+          Déjala vacía "" si no quieres mostrar fecha.
+       3) Cambia el nombre del club y el año del periodo si hace falta.
+       4) Agrega, quita o edita cargos en las listas de abajo.
+       Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
+       ========================================================================= */
 
-const CONFIG = {
-  nombreClub: "Club Rotaract",
-  periodo: "2026–2027",
+    const CONFIG = {
+      nombreClub: "Club Rotaract",
+      periodo: "2026–2027",
 
-  // 👉 Pega aquí SOLO el ID de tu formulario Formspree (ej. "xkoepjrn")
-  //    La URL completa es https://formspree.io/f/EL-ID
-  FORMSPREE_ID: "xpqnvjqa",
+      // 👉 Pega aquí SOLO el ID de tu formulario Formspree (ej. "xkoepjrn")
+      //    La URL completa es https://formspree.io/f/EL-ID
+      FORMSPREE_ID: "xpqnvjqa",
 
-  // 👉 Fecha límite para postularse (ej. "31 de julio de 2026"). Vacía = no se muestra.
-  fechaLimite: "miércoles 10 de junio de 2026"
-};
+      // 👉 Fecha límite para postularse (ej. "31 de julio de 2026"). Vacía = no se muestra.
+      fechaLimite: "miércoles 10 de junio de 2026"
+    };
 
-/* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
-const JUNTA = [
-  { titulo:"Vicepresidente",     desc:"Preside las reuniones en ausencia del presidente y es miembro de todos los comités." },
-  { titulo:"Secretario",         desc:"Lleva las actas y los registros del club, controla la asistencia y la membresía." },
-  { titulo:"Tesorero",           desc:"Custodia los fondos del club y mantiene al día el registro de todas las operaciones." },
-  { titulo:"Macero",             desc:"Maestro de ceremonias. Vela por el orden y el buen desarrollo de las reuniones." }
-];
+    /* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
+    const JUNTA = [
+      { titulo: "Vicepresidente", desc: "Preside las reuniones en ausencia del presidente y es miembro de todos los comités." },
+      { titulo: "Secretario", desc: "Lleva las actas y los registros del club, controla la asistencia y la membresía." },
+      { titulo: "Tesorero", desc: "Custodia los fondos del club y mantiene al día el registro de todas las operaciones." },
+      { titulo: "Macero", desc: "Maestro de ceremonias. Vela por el orden y el buen desarrollo de las reuniones." }
+    ];
 
-/* ---- COMITÉS PERMANENTES ---- */
-const COMITES = [
-  { titulo:"Imagen pública", desc:"Maneja las redes sociales y la comunicación; cuenta la historia del club y promueve sus proyectos." },
-  { titulo:"Proyectos de servicio", desc:"Planifica y ejecuta los proyectos comunitarios y de servicio del club." }
-];
+    /* ---- COMITÉS PERMANENTES ---- */
+    const COMITES = [
+      { titulo: "Imagen pública", desc: "Maneja las redes sociales y la comunicación; cuenta la historia del club y promueve sus proyectos." },
+      { titulo: "Proyectos de servicio", desc: "Planifica y ejecuta los proyectos comunitarios y de servicio del club." }
+    ];
 
-/* ---- COMITÉS OPCIONALES (según necesidad del club) ---- */
-const OPCIONALES = [
-  { titulo:"Servicio internacional", desc:"Es el puente con clubes fuera del país y proyectos internacionales." },
-  { titulo:"Juventud", desc:"Conexión con el club padrino y clubes Interact, si los hubiera." }
-];
+    /* ---- COMITÉS OPCIONALES (según necesidad del club) ---- */
+    const OPCIONALES = [
+      { titulo: "Servicio internacional", desc: "Es el puente con clubes fuera del país y proyectos internacionales." },
+      { titulo: "Juventud", desc: "Conexión con el club padrino y clubes Interact, si los hubiera." }
+    ];
 
-/* =========================================================================
-   ███  No necesitas tocar nada de aquí hacia abajo  ███
-   ========================================================================= */
-function tarjeta(item, clase, etiqueta){
-  const p = item.titulo.replace(/'/g,"\\'");
-  return `
+    /* =========================================================================
+       ███  No necesitas tocar nada de aquí hacia abajo  ███
+       ========================================================================= */
+    function tarjeta(item, clase, etiqueta) {
+      const p = item.titulo.replace(/'/g, "\\'");
+      return `
   <article class="card ${clase}">
     <span class="tag">${etiqueta}</span>
     <h3>${item.titulo}</h3>
     <p>${item.desc}</p>
     <button class="btn" onclick="abrirModal('${p}')">Postularme →</button>
   </article>`;
-}
-function render(id, lista, clase, etiqueta){
-  document.getElementById(id).innerHTML = lista.map(i => tarjeta(i, clase, etiqueta)).join("");
-}
-document.getElementById("hero-badge").textContent = `Periodo ${CONFIG.periodo}`;
-document.getElementById("footer-text").innerHTML =
-  `Periodo ${CONFIG.periodo} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
-render("grid-junta", JUNTA, "junta", "Junta directiva");
-render("grid-comites", COMITES, "comite", "Comité");
-render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
+    }
+    function render(id, lista, clase, etiqueta) {
+      document.getElementById(id).innerHTML = lista.map(i => tarjeta(i, clase, etiqueta)).join("");
+    }
+    document.getElementById("hero-badge").textContent = `Periodo ${CONFIG.periodo}`;
+    document.getElementById("footer-text").innerHTML =
+      `Periodo ${CONFIG.periodo} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
+    render("grid-junta", JUNTA, "junta", "Junta directiva");
+    render("grid-comites", COMITES, "comite", "Comité");
+    render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
 
-/* ---- MODAL ---- */
-const overlay = document.getElementById("overlay");
-function abrirModal(puesto){
-  document.getElementById("modal-puesto").textContent = puesto;
-  document.getElementById("form-postulacion").reset();
-  document.getElementById("campo-puesto").value = puesto;
-  document.getElementById("form-postulacion").style.display = "block";
-  document.getElementById("gracias").classList.remove("show");
-  document.getElementById("aviso-config").style.display = CONFIG.FORMSPREE_ID ? "none" : "block";
-  const fl = document.getElementById("fecha-limite");
-  if(CONFIG.fechaLimite){
-    fl.textContent = "📅 Fecha límite para postularse: " + CONFIG.fechaLimite;
-    fl.style.display = "block";
-  } else {
-    fl.style.display = "none";
-  }
-  overlay.classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-function cerrarModal(){
-  overlay.classList.remove("open");
-  document.body.style.overflow = "";
-}
-overlay.addEventListener("click", e => { if(e.target === overlay) cerrarModal(); });
-document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarModal(); });
+    /* ---- MODAL ---- */
+    const overlay = document.getElementById("overlay");
+    function abrirModal(puesto) {
+      document.getElementById("modal-puesto").textContent = puesto;
+      document.getElementById("form-postulacion").reset();
+      document.getElementById("campo-puesto").value = puesto;
+      document.getElementById("form-postulacion").style.display = "block";
+      document.getElementById("gracias").classList.remove("show");
+      document.getElementById("aviso-config").style.display = CONFIG.FORMSPREE_ID ? "none" : "block";
+      const fl = document.getElementById("fecha-limite");
+      if (CONFIG.fechaLimite) {
+        fl.textContent = "📅 Fecha límite para postularse: " + CONFIG.fechaLimite;
+        fl.style.display = "block";
+      } else {
+        fl.style.display = "none";
+      }
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function cerrarModal() {
+      overlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    overlay.addEventListener("click", e => { if (e.target === overlay) cerrarModal(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarModal(); });
 
-/* ---- ENVÍO A FORMSPREE ---- */
-document.getElementById("form-postulacion").addEventListener("submit", function(e){
-  e.preventDefault();
-  const btn = document.getElementById("btn-enviar");
-  const correo = document.getElementById("campo-correo").value.trim();
-  const datos = {
-    "Puesto": document.getElementById("campo-puesto").value,
-    "Nombre y apellido": document.getElementById("campo-nombre").value.trim(),
-    "Correo electrónico": correo,
-    "Por qué se postula": document.getElementById("campo-motivo").value.trim(),
-    "Experiencia previa": document.getElementById("campo-experiencia").value.trim(),
-    "_replyto": correo,
-    "_subject": "Nueva postulación: " + document.getElementById("campo-puesto").value
-  };
+    /* ---- ENVÍO A FORMSPREE ---- */
+    document.getElementById("form-postulacion").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const btn = document.getElementById("btn-enviar");
+      const correo = document.getElementById("campo-correo").value.trim();
+      const datos = {
+        "Puesto": document.getElementById("campo-puesto").value,
+        "Nombre y apellido": document.getElementById("campo-nombre").value.trim(),
+        "Correo electrónico": correo,
+        "Por qué se postula": document.getElementById("campo-motivo").value.trim(),
+        "Experiencia previa": document.getElementById("campo-experiencia").value.trim(),
+        "_replyto": correo,
+        "_subject": "Nueva postulación: " + document.getElementById("campo-puesto").value
+      };
 
-  if(!CONFIG.FORMSPREE_ID){
-    mostrarGracias();
-    return;
-  }
-  btn.disabled = true; btn.textContent = "Enviando...";
-  fetch("https://formspree.io/f/" + CONFIG.FORMSPREE_ID, {
-    method:"POST",
-    headers:{"Content-Type":"application/json","Accept":"application/json"},
-    body: JSON.stringify(datos)
-  })
-  .then(r => { if(!r.ok) throw new Error(); mostrarGracias(); })
-  .catch(() => { alert("No se pudo enviar. Revisa tu conexión e inténtalo de nuevo."); })
-  .finally(() => { btn.disabled = false; btn.textContent = "Enviar postulación"; });
-});
+      if (!CONFIG.FORMSPREE_ID) {
+        // Sin conectar: muestra gracias igualmente para no bloquear la demo
+        mostrarGracias();
+        return;
+      }
+      btn.disabled = true; btn.textContent = "Enviando...";
+      fetch("https://formspree.io/f/" + CONFIG.FORMSPREE_ID, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(datos)
+      })
+        .then(r => { if (!r.ok) throw new Error(); mostrarGracias(); })
+        .catch(() => { alert("No se pudo enviar. Revisa tu conexión e inténtalo de nuevo."); })
+        .finally(() => { btn.disabled = false; btn.textContent = "Enviar postulación"; });
+    });
 
-function mostrarGracias(){
-  document.getElementById("form-postulacion").style.display = "none";
-  document.getElementById("gracias").classList.add("show");
-}
-</script>
+    function mostrarGracias() {
+      document.getElementById("form-postulacion").style.display = "none";
+      document.getElementById("gracias").classList.add("show");
+    }
+  </script>
 </body>
+
 </html>
