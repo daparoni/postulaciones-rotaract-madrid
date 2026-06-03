@@ -7,10 +7,12 @@
 <meta name="description" content="Conoce los cargos disponibles del club Rotaract para el nuevo periodo y postúlate." />
 <style>
   :root{
-    --azul:#17458f;       /* Rotary Royal Azure */
+    --azul:#17458f;        /* Rotary Royal Azure */
     --azul-osc:#0c3c7c;
-    --oro:#f7a81b;        /* Rotary Gold */
-    --cranberry:#d41367;  /* Rotaract */
+    --cranberry:#d41367;   /* Rotaract */
+    --cranberry-osc:#a30e50;
+    --gris-n:#64748b;      /* gris neutro */
+    --gris-n-osc:#475569;
     --tinta:#1a1a2e;
     --gris:#5b6472;
     --linea:#e7eaf0;
@@ -34,7 +36,7 @@
   }
   header.hero::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
-    background:linear-gradient(90deg,var(--oro),var(--cranberry));
+    background:linear-gradient(90deg,var(--cranberry),var(--azul));
   }
   .hero .badge{
     display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
@@ -43,10 +45,10 @@
   .hero h1{font-size:2.5rem;font-weight:800;line-height:1.15;max-width:760px;margin:0 auto 14px}
   .hero p{font-size:1.1rem;opacity:.92;max-width:620px;margin:0 auto 28px}
   .hero .cta{
-    display:inline-block;background:var(--oro);color:var(--azul-osc);font-weight:700;
+    display:inline-block;background:var(--cranberry);color:#fff;font-weight:700;
     padding:14px 30px;border-radius:999px;font-size:1.02rem;transition:.2s;box-shadow:var(--sombra);cursor:pointer;border:none;font-family:inherit;
   }
-  .hero .cta:hover{transform:translateY(-2px);box-shadow:var(--sombra-h)}
+  .hero .cta:hover{background:var(--cranberry-osc);transform:translateY(-2px);box-shadow:var(--sombra-h)}
 
   /* ===== CONTENEDOR ===== */
   main{max-width:1080px;margin:-50px auto 0;padding:0 20px 80px;position:relative;z-index:2}
@@ -58,7 +60,7 @@
   }
   .paso{display:flex;gap:14px;align-items:flex-start}
   .paso .n{
-    flex:0 0 38px;height:38px;border-radius:50%;background:var(--azul);color:#fff;
+    flex:0 0 38px;height:38px;border-radius:50%;background:var(--cranberry);color:#fff;
     display:grid;place-items:center;font-weight:700;
   }
   .paso h3{font-size:1rem;margin-bottom:2px}
@@ -79,35 +81,36 @@
     background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio);
     padding:24px;display:flex;flex-direction:column;transition:.2s;position:relative;overflow:hidden;
   }
+  /* Junta directiva (por defecto) → cranberry */
   .card::before{
-    content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--azul);
+    content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--cranberry);
   }
-  .card.comite::before{background:var(--oro)}
-  .card.opcional::before{background:var(--cranberry)}
+  .card.comite::before{background:var(--azul)}
+  .card.opcional::before{background:var(--gris-n)}
   .card:hover{transform:translateY(-4px);box-shadow:var(--sombra-h);border-color:transparent}
   .card .tag{
     align-self:flex-start;font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
-    color:var(--azul);background:rgba(23,69,143,.08);padding:4px 10px;border-radius:6px;margin-bottom:14px;
+    color:var(--cranberry);background:rgba(212,19,103,.1);padding:4px 10px;border-radius:6px;margin-bottom:14px;
   }
-  .card.comite .tag{color:#b07a00;background:rgba(247,168,27,.14)}
-  .card.opcional .tag{color:var(--cranberry);background:rgba(212,19,103,.1)}
+  .card.comite .tag{color:var(--azul);background:rgba(23,69,143,.1)}
+  .card.opcional .tag{color:var(--gris-n-osc);background:rgba(100,116,139,.12)}
   .card h3{font-size:1.18rem;margin-bottom:8px}
   .card p{font-size:.93rem;color:var(--gris);flex:1;margin-bottom:18px}
   .card .btn{
-    align-self:flex-start;background:var(--azul);color:#fff;font-weight:600;font-size:.92rem;
+    align-self:flex-start;background:var(--cranberry);color:#fff;font-weight:600;font-size:.92rem;
     padding:10px 22px;border-radius:999px;transition:.2s;cursor:pointer;border:none;font-family:inherit;
   }
-  .card .btn:hover{background:var(--azul-osc)}
-  .card.comite .btn{background:#b07a00}
-  .card.comite .btn:hover{background:#8a5f00}
-  .card.opcional .btn{background:var(--cranberry)}
-  .card.opcional .btn:hover{background:#a30e50}
+  .card .btn:hover{background:var(--cranberry-osc)}
+  .card.comite .btn{background:var(--azul)}
+  .card.comite .btn:hover{background:var(--azul-osc)}
+  .card.opcional .btn{background:var(--gris-n)}
+  .card.opcional .btn:hover{background:var(--gris-n-osc)}
 
   /* ===== FOOTER ===== */
   footer{
-    text-align:center;padding:36px 20px;color:var(--gris);font-size:.86rem;border-top:1px solid var(--linea);
+    text-align:center;padding:36px 20px;background:var(--azul);color:rgba(255,255,255,.9);font-size:.86rem;
   }
-  footer .dot{color:var(--oro)}
+  footer .dot{color:#fff}
 
   /* ===== MODAL ===== */
   .overlay{
@@ -117,8 +120,8 @@
   .overlay.open{display:flex;animation:fade .2s ease}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   .modal{
-    background:var(--blanco);border-radius:var(--radio);max-width:480px;width:100%;
-    box-shadow:0 30px 70px rgba(0,0,0,.3);overflow:hidden;animation:up .25s ease;
+    background:var(--blanco);border-radius:var(--radio);max-width:480px;width:100%;max-height:92vh;overflow-y:auto;
+    box-shadow:0 30px 70px rgba(0,0,0,.3);animation:up .25s ease;
   }
   @keyframes up{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
   .modal-head{background:linear-gradient(135deg,var(--azul-osc),var(--azul));color:#fff;padding:22px 24px;position:relative}
@@ -127,25 +130,29 @@
   .modal-head .x{position:absolute;top:16px;right:18px;background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:grid;place-items:center;padding:0;line-height:1;z-index:3;transition:background .15s}
   .modal-head .x:hover{background:rgba(255,255,255,.35)}
   .modal-body{padding:24px}
+  .fecha-limite{
+    display:none;background:rgba(212,19,103,.08);border:1px solid var(--cranberry);color:var(--cranberry-osc);
+    border-radius:10px;padding:10px 12px;font-size:.88rem;font-weight:600;margin-bottom:18px;text-align:center;
+  }
   .campo{margin-bottom:18px}
   .campo label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
   .campo input,.campo textarea{
     width:100%;border:1.5px solid var(--linea);border-radius:10px;padding:11px 13px;
     font-size:.95rem;font-family:inherit;color:var(--tinta);outline:none;transition:.15s;resize:vertical;
   }
-  .campo input:focus,.campo textarea:focus{border-color:var(--azul)}
+  .campo input:focus,.campo textarea:focus{border-color:var(--cranberry)}
   .enviar{
-    width:100%;background:var(--azul);color:#fff;border:none;font-family:inherit;font-weight:700;
+    width:100%;background:var(--cranberry);color:#fff;border:none;font-family:inherit;font-weight:700;
     font-size:1rem;padding:13px;border-radius:999px;cursor:pointer;transition:.2s;
   }
-  .enviar:hover{background:var(--azul-osc)}
+  .enviar:hover{background:var(--cranberry-osc)}
   .enviar:disabled{opacity:.6;cursor:default}
   .gracias{text-align:center;padding:42px 28px;display:none}
   .gracias.show{display:block}
   .gracias .big{font-size:48px;margin-bottom:10px}
   .gracias h3{font-size:1.4rem;margin-bottom:6px}
   .gracias p{color:var(--gris)}
-  .aviso-config{display:none;background:#fff6e6;border:1px solid var(--oro);color:#7a5600;border-radius:10px;padding:10px 12px;font-size:.85rem;margin-bottom:16px}
+  .aviso-config{display:none;background:#fff6e6;border:1px solid #f7a81b;color:#7a5600;border-radius:10px;padding:10px 12px;font-size:.85rem;margin-bottom:16px}
 
   @media(max-width:680px){
     .hero h1{font-size:1.9rem}
@@ -218,14 +225,23 @@
 
     <form class="modal-body" id="form-postulacion">
       <div class="aviso-config" id="aviso-config">⚠️ El formulario aún no está conectado. El administrador debe pegar el ID de Formspree en el bloque CONFIG de index.html (ver la guía).</div>
+      <div class="fecha-limite" id="fecha-limite"></div>
       <input type="hidden" name="puesto" id="campo-puesto" />
       <div class="campo">
         <label for="campo-nombre">Nombre y apellido</label>
         <input type="text" id="campo-nombre" name="nombre" required placeholder="Ej. María Pérez" />
       </div>
       <div class="campo">
+        <label for="campo-correo">Correo electrónico</label>
+        <input type="email" id="campo-correo" name="correo" required placeholder="tu@correo.com" />
+      </div>
+      <div class="campo">
         <label for="campo-motivo">¿Por qué te postulas a este puesto?</label>
         <textarea id="campo-motivo" name="motivo" rows="4" required placeholder="Cuéntanos tu motivación y qué propones..."></textarea>
+      </div>
+      <div class="campo">
+        <label for="campo-experiencia">¿Tienes experiencia previa en este cargo o uno similar?</label>
+        <textarea id="campo-experiencia" name="experiencia" rows="3" required placeholder="Describe tu experiencia, o escribe 'No' si no tienes."></textarea>
       </div>
       <button type="submit" class="enviar" id="btn-enviar">Enviar postulación</button>
     </form>
@@ -245,8 +261,10 @@
    =========================================================================
    1) FORMSPREE_ID: pega aquí el ID de tu formulario de Formspree.
       (Lo obtienes gratis en formspree.io — ver guia-postulaciones.md)
-   2) Cambia el nombre del club y el año del periodo si hace falta.
-   3) Agrega, quita o edita cargos en las listas de abajo.
+   2) fechaLimite: fecha tope para postularse (se muestra en el formulario).
+      Déjala vacía "" si no quieres mostrar fecha.
+   3) Cambia el nombre del club y el año del periodo si hace falta.
+   4) Agrega, quita o edita cargos en las listas de abajo.
    Cada vez que guardes y subas el archivo a GitHub, la web se actualiza sola.
    ========================================================================= */
 
@@ -256,7 +274,10 @@ const CONFIG = {
 
   // 👉 Pega aquí SOLO el ID de tu formulario Formspree (ej. "xkoepjrn")
   //    La URL completa es https://formspree.io/f/EL-ID
-  FORMSPREE_ID: "xpqnvjqa"
+  FORMSPREE_ID: "xpqnvjqa",
+
+  // 👉 Fecha límite para postularse (ej. "31 de julio de 2026"). Vacía = no se muestra.
+  fechaLimite: ""
 };
 
 /* ---- CARGOS DE LA JUNTA DIRECTIVA ---- */
@@ -306,12 +327,18 @@ render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
 const overlay = document.getElementById("overlay");
 function abrirModal(puesto){
   document.getElementById("modal-puesto").textContent = puesto;
-  document.getElementById("campo-puesto").value = puesto;
   document.getElementById("form-postulacion").reset();
   document.getElementById("campo-puesto").value = puesto;
   document.getElementById("form-postulacion").style.display = "block";
   document.getElementById("gracias").classList.remove("show");
   document.getElementById("aviso-config").style.display = CONFIG.FORMSPREE_ID ? "none" : "block";
+  const fl = document.getElementById("fecha-limite");
+  if(CONFIG.fechaLimite){
+    fl.textContent = "📅 Fecha límite para postularse: " + CONFIG.fechaLimite;
+    fl.style.display = "block";
+  } else {
+    fl.style.display = "none";
+  }
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
 }
@@ -326,10 +353,14 @@ document.addEventListener("keydown", e => { if(e.key === "Escape") cerrarModal()
 document.getElementById("form-postulacion").addEventListener("submit", function(e){
   e.preventDefault();
   const btn = document.getElementById("btn-enviar");
+  const correo = document.getElementById("campo-correo").value.trim();
   const datos = {
     "Puesto": document.getElementById("campo-puesto").value,
     "Nombre y apellido": document.getElementById("campo-nombre").value.trim(),
+    "Correo electrónico": correo,
     "Por qué se postula": document.getElementById("campo-motivo").value.trim(),
+    "Experiencia previa": document.getElementById("campo-experiencia").value.trim(),
+    "_replyto": correo,
     "_subject": "Nueva postulación: " + document.getElementById("campo-puesto").value
   };
 
