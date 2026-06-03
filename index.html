@@ -38,6 +38,7 @@
     content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
     background:linear-gradient(90deg,var(--cranberry),var(--azul));
   }
+  .hero-logo{width:min(360px,72%);height:auto;display:block;margin:0 auto 24px}
   .hero .badge{
     display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
     padding:6px 16px;border-radius:999px;font-size:.82rem;letter-spacing:.5px;margin-bottom:18px;
@@ -163,7 +164,8 @@
 <body>
 
 <header class="hero">
-  <span class="badge" id="hero-badge">Rotaract · Periodo 2026–2027</span>
+  <img class="hero-logo" src="logo.svg" alt="Rotaract Club Madrid" />
+  <span class="badge" id="hero-badge">Periodo 2026–2027</span>
   <h1 id="hero-title">Postúlate a un cargo del club</h1>
   <p id="hero-sub">Este es nuestro primer paso tecnológico: una forma transparente y abierta para que cualquier socio se postule a los cargos disponibles del nuevo periodo.</p>
   <button class="cta" onclick="document.getElementById('cargos').scrollIntoView({behavior:'smooth'})">Ver cargos y postularme ↓</button>
@@ -211,7 +213,7 @@
 </main>
 
 <footer>
-  <p id="footer-text">Club Rotaract · Periodo 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
+  <p id="footer-text">Periodo 2026–2027 <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.</p>
 </footer>
 
 <!-- ===== MODAL DE POSTULACIÓN ===== -->
@@ -316,9 +318,9 @@ function tarjeta(item, clase, etiqueta){
 function render(id, lista, clase, etiqueta){
   document.getElementById(id).innerHTML = lista.map(i => tarjeta(i, clase, etiqueta)).join("");
 }
-document.getElementById("hero-badge").textContent = `${CONFIG.nombreClub} · Periodo ${CONFIG.periodo}`;
+document.getElementById("hero-badge").textContent = `Periodo ${CONFIG.periodo}`;
 document.getElementById("footer-text").innerHTML =
-  `${CONFIG.nombreClub} · Periodo ${CONFIG.periodo} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
+  `Periodo ${CONFIG.periodo} <span class="dot">●</span> Hecho con cariño para los socios y las futuras generaciones.`;
 render("grid-junta", JUNTA, "junta", "Junta directiva");
 render("grid-comites", COMITES, "comite", "Comité");
 render("grid-opcionales", OPCIONALES, "opcional", "Opcional");
@@ -365,7 +367,6 @@ document.getElementById("form-postulacion").addEventListener("submit", function(
   };
 
   if(!CONFIG.FORMSPREE_ID){
-    // Sin conectar: muestra gracias igualmente para no bloquear la demo
     mostrarGracias();
     return;
   }
